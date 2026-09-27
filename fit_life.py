@@ -7,9 +7,10 @@ user_name = input('Как вас зовут: ')
 user_age = int(input('Сколько Вам лет: '))
 
 user_weight = float(input('Ваш вес в килограммах: '))
-user_height = float(input('И Ваш вост в метрах с точкой (например, 1.75): '))
+user_height = input('И Ваш вост в метрах с точкой (например, 1.75): ')
+user_height_clean = float(user_height.replace(',', '.'))  # страхуемся от ','
 
-bmi = round((user_weight / (user_height ** 2)), 1)
+bmi = round((user_weight / (user_height_clean ** 2)), 1)
 
 water_ml = user_weight * WATER_30_ML
 water_needed = round((water_ml / 1000), 1)  # норму воды округлил до одного
